@@ -1,0 +1,66 @@
+Auto-grader Configuration:
+  blocks found in :	auto_grade/blocks/
+=======================================================================
+Testing submission: noway.tar
+NO README!!!!
+Name: noway, NetId: noway 	Date From Files: 2022-09-12
+
+chmod: cannot access ‘412fe’: No such file or directory
+--- built front end and should be ready to run ---
+ 
+noway.tar didn't folllow the instructions: no 412fe
+submission failed to build correctly
+likely a problem with tar file, make file, or script
+
+finished testing submission noway.tar
+=======================================================================
+Testing submission: comp412.tar
+Name: Comp 412, NetId: comp412 	Date From Files: 2022-09-12
+
+--- building executable ---
+rm -f 412fe *.o
+cp placeholder 412fe
+chmod 711 412fe
+--- built front end and should be ready to run ---
+ 
+Testing Correctness
+
+	parse.i 	0 correct lines identified as errors
+			5 errors found, 5 expected
+	report1.i 	0 correct lines identified as errors
+			0 errors found, 0 expected
+	report2.i 	0 correct lines identified as errors
+			0 errors found, 0 expected
+	report3.i 	0 correct lines identified as errors
+			0 errors found, 0 expected
+	scanner.i 	0 correct lines identified as errors
+			2 errors found, 2 expected
+	-------------------------
+	0 correct lines identified as errors
+	0 lines with errors missed
+
+Testing Conformance	(If we got this far, the tar file worked.)
+
+	Produced 'ERROR' message on missing or bad file name
+	Help message check found all options
+
+Testing Scalability:
+
+	T8k.i:  	0.006562 seconds
+	T16k.i:  	0.008503 seconds
+	T32k.i:  	0.012369 seconds
+	T64k.i:  	0.02074 seconds
+	T128k.i:  	0.037317 seconds
+
+	Scaling appears to be linear
+
+Scoring:
+	Conformance:	100.0%
+	Correctness:	100%
+	Scalability:	100%
+	Total Points:	100.0
+
+finished testing submission comp412.tar
+=======================================================================
+ 
+Grading run complete.

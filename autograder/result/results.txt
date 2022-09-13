@@ -1,0 +1,2 @@
+Name	NetId	Conform	Correct	Scales	Points
+Comp 412	comp412	100.0	100	100	100.0
