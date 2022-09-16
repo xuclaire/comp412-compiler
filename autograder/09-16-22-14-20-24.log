@@ -1,0 +1,52 @@
+Auto-grader Configuration:
+  blocks found in :	auto_grade/blocks/
+=======================================================================
+Testing submission: ccx1.tar
+Name: ccx1, NetId: ccx1 	Date From Files: 2022-09-16
+
+--- built front end and should be ready to run ---
+ 
+Testing Correctness
+
+	parse.i 	1 correct lines identified as errors
+			0 errors found, 5 expected
+	report1.i 	0 correct lines identified as errors
+			0 errors found, 0 expected
+	report2.i 	0 correct lines identified as errors
+			0 errors found, 0 expected
+	report3.i 	0 correct lines identified as errors
+			0 errors found, 0 expected
+	scanner.i 	1 correct lines identified as errors
+			2 errors found, 2 expected
+	-------------------------
+	2 correct lines identified as errors
+	5 lines with errors missed
+
+Testing Conformance	(If we got this far, the tar file worked.)
+
+	Found message, but ERROR was not in uppercase (1)
+	Produced 'ERROR' message on missing or bad file name
+	Help message check found all options
+
+Testing Scalability:
+
+	T8k.i:  	0.017791 seconds
+	T16k.i:  	0.017895 seconds
+	T32k.i:  	0.017645 seconds
+	T64k.i:  	0.017199 seconds
+	T128k.i:  	0.017551 seconds
+
+	The code may not work; 3 codes showed no growth
+
+	Scaling appears to be linear
+
+Scoring:
+	Conformance:	87.5%
+	Correctness:	0%
+	Scalability:	100%
+	Total Points:	45.625
+
+finished testing submission ccx1.tar
+=======================================================================
+ 
+Grading run complete.

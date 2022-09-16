@@ -1,5 +1,5 @@
-categories = ["MEMOP", "LOADI", "ARITHOP", "OUTPUT", "NOP", "CONST", "REG", "COMMA", "INTO", "EOF", "EOL", "NEWLINE"]
-words = ['"load"', '"store"', '"loadl"', '"add"', '"sub"', '"mult"', '"lshift"', '"rshift"', '"output"', '"nop"', ',', '"=>"', '"\\n"', '"EOL"', '"constant"', '"register"', '"EOF']
+categories = ["MEMOP", "LOADI", "ARITHOP", "OUTPUT", "NOP", "CONST", "REG", "COMMA", "INTO", "ENDFILE", "EOL", "NEWLINE"]
+words = ['"load"', '"store"', '"loadl"', '"add"', '"sub"', '"mult"', '"lshift"', '"rshift"', '"output"', '"nop"', '","', '"=>"', '"\\n"', '"EOL"', '"constant"', '"register"', '""']
 
 CAT_MEMOP = 0
 CAT_LOADI = 1

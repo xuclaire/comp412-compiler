@@ -2,6 +2,7 @@ import sys
 import getopt
 import Constants
 import Scanner
+import Parser
 
 #ADD THE PART WHERE YOU DEFAULT TO -P IF NO CMD LINE ARG
 
@@ -33,34 +34,35 @@ def main():
         if opt == '-h':
             usage()
             sys.exit()
-        elif opt == '-s':
-            file = open(sys.argv[2], 'r') 
-            lines = file.readlines()
-            line_number = 0
-            for i in lines:
-                current_line = lines[lines.index(i)].lstrip()
-                line_number += 1
-                my_scanner = Scanner.Scanner(args)
-                tokens = my_scanner.scan_line(current_line, line_number)
-                for token in tokens:
-                    category = token[0]
-                    lexeme = token[1]
-                    constant_cat = Constants.categories[category]
-                    constant_word = Constants.words[lexeme]
-                    print(str(line_number) + ": < " + constant_cat + ", " + constant_word + " >")      
+        elif opt == '-s':  
+            scanner = Scanner.Scanner(args)
+            scanner.scan()
         elif opt == '-p' or not opts:
             #parse the a
-            print("parsing")
+            parser = Parser.Parser()
+            parser.parse()
+            parser_errors = parser.parser_errors
+            scanner_errors = parser.scanner_errors
+            line_errors = parser.num_error_lines
+            if parser_errors > 0 or scanner_errors > 0 or line_errors > 0:
+                print("Found " + str(scanner_errors + parser_errors) + " errors on " + str(line_errors) + " lines.")
+            else:
+                print("Parse successful, no errors!")
+
         elif opt == '-r':
             #run the a
-            print("running")
+            parser = Parser.Parser()
+            parser.parse()
+            errors = parser.parser_errors
+            if errors > 0:
+                print("Due to syntax errors, run terminates.")
+            else:
+                print("Run successful!")
         elif opt == '' or opt == ' ':
             opt = '-p'
-            print("parsing")
         else:
             usage()
             sys.exit(2)
-
 
 if __name__ == "__main__":
     main()
