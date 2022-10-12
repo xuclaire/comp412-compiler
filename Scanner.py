@@ -26,16 +26,19 @@ class Scanner:
             for token in self.tokens:
                 category = token[0]
                 lexeme = token[1]
+                lst = list(token)
+                lst[2] = self.line_number
+                token = tuple(lst)
                 constant_cat = Constants.categories[category]
                 if category == Constants.CAT_CONSTANT or category == Constants.CAT_REGISTER:
                     constant_word = str(lexeme)
                 else:
                     constant_word = Constants.words[lexeme]       
-                print(str(self.line_number) + ": < " + constant_cat + ", " + constant_word + " >")
+                #print(str(self.line_number) + ": < " + constant_cat + ", " + constant_word + " >")
                 self.total_file_tokens.append(token)  
         self.line_number += 1
-        print(str(self.line_number) + ": < ENDFILE, \"\" >")
-        self.total_file_tokens.append((Constants.CAT_EOF, Constants.WORDS_EOF))
+        #print(str(self.line_number) + ": < ENDFILE, \"\" >")
+        self.total_file_tokens.append((Constants.CAT_EOF, Constants.WORDS_EOF, self.line_number))
         self.eof = True
         return self.total_file_tokens
     
@@ -50,7 +53,7 @@ class Scanner:
                 t = int(self.char)
                 self.next_char_pointer += 1
                 if self.next_char_pointer == len(self.current_line):
-                    self.tokens.append((Constants.CAT_NEWLINE, Constants.WORDS_NEWLINE))
+                    #self.tokens.append((Constants.CAT_NEWLINE, Constants.WORDS_NEWLINE))
                     self.char = '\n'
                     eol = True
                 else:
@@ -60,7 +63,7 @@ class Scanner:
             while (self.char == ' ' or self.char == '\t'):    
                 self.next_char_pointer += 1
                 self.char = self.current_line[self.next_char_pointer]
-            self.tokens.append((Constants.CAT_CONSTANT, constant))
+            self.tokens.append((Constants.CAT_CONSTANT, constant, 0))
         elif self.char == 's':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -80,7 +83,7 @@ class Scanner:
                                 while self.char == ' ' or self.char == '\t':
                                     self.next_char_pointer += 1
                                     self.char = self.current_line[self.next_char_pointer] 
-                            self.tokens.append((Constants.CAT_MEMOP, Constants.WORDS_STORE))
+                            self.tokens.append((Constants.CAT_MEMOP, Constants.WORDS_STORE, 0))
             elif self.char == 'u':
                 self.next_char_pointer += 1
                 self.char = self.current_line[self.next_char_pointer]  
@@ -91,7 +94,7 @@ class Scanner:
                         while self.char == ' ' or self.char == '\t':
                             self.next_char_pointer += 1
                             self.char = self.current_line[self.next_char_pointer]
-                    self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_SUB))
+                    self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_SUB, 0))
         elif self.char == 'l':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -111,12 +114,12 @@ class Scanner:
                                 while (self.char == ' ' or self.char == '\t'):
                                     self.next_char_pointer += 1
                                     self.char = self.current_line[self.next_char_pointer]   
-                                self.tokens.append((Constants.CAT_LOADI, Constants.WORDS_LOADI))
+                                self.tokens.append((Constants.CAT_LOADI, Constants.WORDS_LOADI, 0))
                         elif self.char == ' ' or self.char == '\t':
                             while self.char == ' ' or self.char == '\t':
                                 self.next_char_pointer += 1
                                 self.char = self.current_line[self.next_char_pointer]
-                            self.tokens.append((Constants.CAT_MEMOP, Constants.WORDS_LOAD))
+                            self.tokens.append((Constants.CAT_MEMOP, Constants.WORDS_LOAD, 0))
             if self.char == 's':
                 self.next_char_pointer += 1
                 self.char = self.current_line[self.next_char_pointer]
@@ -135,7 +138,7 @@ class Scanner:
                                 while self.char == ' ' or self.char == '\t':
                                     self.next_char_pointer += 1
                                     self.char = self.current_line[self.next_char_pointer]
-                                self.tokens.append((Constants.CAT_MEMOP, Constants.WORDS_LSHIFT))
+                                self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_LSHIFT, 0))
         elif self.char == 'r':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer] 
@@ -159,7 +162,7 @@ class Scanner:
                                 while self.char == ' ' or self.char == '\t':
                                     self.next_char_pointer += 1
                                     self.char = self.current_line[self.next_char_pointer]
-                                self.tokens.append((Constants.CAT_MEMOP, Constants.WORDS_RSHIFT))
+                                self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_RSHIFT, 0))
             if self.char.isdigit():  
                 register = "\"r"  
                 if self.char < '0' or self.char > '9':
@@ -170,7 +173,7 @@ class Scanner:
                     t = int(self.char)
                     self.next_char_pointer += 1
                     if self.next_char_pointer == len(self.current_line):
-                        self.tokens.append((Constants.CAT_NEWLINE, Constants.WORDS_NEWLINE))
+                        #self.tokens.append((Constants.CAT_NEWLINE, Constants.WORDS_NEWLINE))
                         self.char = '\n'
                         eol = True
                     else:
@@ -181,7 +184,7 @@ class Scanner:
                     while self.char == ' ' or self.char == '\t':
                         self.next_char_pointer += 1
                         self.char = self.current_line[self.next_char_pointer]
-                self.tokens.append((Constants.CAT_REGISTER, register)) 
+                self.tokens.append((Constants.CAT_REGISTER, register, 0)) 
         elif self.char == 'm':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -197,7 +200,7 @@ class Scanner:
                         while self.char == ' ' or self.char == '\t':
                             self.next_char_pointer += 1
                             self.char = self.current_line[self.next_char_pointer]
-                        self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_MULT))
+                        self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_MULT, 0))
         elif self.char == 'a':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -211,7 +214,7 @@ class Scanner:
                         while self.char == ' ' or self.char == '\t':
                             self.next_char_pointer += 1
                             self.char = self.current_line[self.next_char_pointer]
-                    self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_ADD))
+                    self.tokens.append((Constants.CAT_ARITHOP, Constants.WORDS_ADD, 0))
         elif self.char == 'n':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -224,7 +227,7 @@ class Scanner:
                     while self.char == ' ' or self.char == '\t':
                         self.next_char_pointer += 1
                         self.char = self.current_line[self.next_char_pointer]
-                    self.tokens.append((Constants.CAT_NOP, Constants.WORDS_NOP))
+                    self.tokens.append((Constants.CAT_NOP, Constants.WORDS_NOP, 0))
         elif self.char == 'o':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -246,7 +249,7 @@ class Scanner:
                                 while self.char == ' ' or self.char == '\t':
                                     self.next_char_pointer += 1
                                     self.char = self.current_line[self.next_char_pointer]
-                                self.tokens.append((Constants.CAT_OUTPUT, Constants.WORDS_OUTPUT))
+                                self.tokens.append((Constants.CAT_OUTPUT, Constants.WORDS_OUTPUT, 0))
         elif self.char == '=':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -257,7 +260,7 @@ class Scanner:
                     while self.char == ' ' or self.char == '\t':
                         self.next_char_pointer += 1
                         self.char = self.current_line[self.next_char_pointer]
-                self.tokens.append((Constants.CAT_INTO, Constants.WORDS_INTO))
+                self.tokens.append((Constants.CAT_INTO, Constants.WORDS_INTO, 0))
         elif self.char == ',':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -265,7 +268,7 @@ class Scanner:
                 while self.char == ' ' or self.char == '\t':
                     self.next_char_pointer += 1
                     self.char = self.current_line[self.next_char_pointer]
-            self.tokens.append((Constants.CAT_COMMA, Constants.WORDS_COMMA))
+            self.tokens.append((Constants.CAT_COMMA, Constants.WORDS_COMMA, 0))
         elif self.char == '/':
             self.next_char_pointer += 1
             self.char = self.current_line[self.next_char_pointer]
@@ -308,6 +311,6 @@ class Scanner:
         while self.next_char_pointer < len(self.current_line)-1 or self.eol == False:
             self.scan_nextword()
         if self.eol == True:
-            self.tokens.append((Constants.CAT_NEWLINE, Constants.WORDS_NEWLINE))
+            self.tokens.append((Constants.CAT_NEWLINE, Constants.WORDS_NEWLINE, 0))
         return self.tokens
             
