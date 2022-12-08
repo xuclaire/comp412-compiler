@@ -2,6 +2,7 @@ import sys
 import getopt
 import Parser
 import Renamer
+import Allocator
 
 def usage():    
     print("\nThis is a list of valid command line arguments to use: \n")
@@ -15,25 +16,43 @@ def main():
         print(err)
         usage()
         sys.exit(2)    
-    if args:
-        if len(args) == 1:
-            return
+    # if args:
+    #     if len(args) == 1:
+    #         return
+    #     else:
+    #         print ("args", args)
+    #         usage()
+    #         sys.exit() 
+    if sys.argv[1].isdigit():
+        if int(sys.argv[1]) > 64 or int(sys.argv[1]) < 3:
+            print("ERROR!")
         else:
-            print ("args", args)
-            usage()
-            sys.exit() 
-    for opt, args in opts:
-        opt = opt[:2]
-        if opt == '-h':
-            usage()
-            sys.exit()  
-        elif opt == '-x':
-            parser = Parser.Parser()
-            max_sr = parser.parse()
-            #print(repr(parser.IR))
-            renamer = Renamer.Renamer(max_sr)
-            renamer.rename()
-            renamer.print_nodes()
+            allocate(int(sys.argv[1]))
+    else:
+        for opt, args in opts:
+            opt = opt[:2]
+            if opt == '-h':
+                usage()
+                sys.exit()  
+            elif opt == '-x':
+                parser = Parser.Parser()
+                max_sr = parser.parse()
+                renamer = Renamer.Renamer(max_sr)
+                renamer.rename()
+                renamer.print_nodes()
 
+def allocate(k):
+    parser = Parser.Parser()
+    max_sr = parser.parse()
+    renamer = Renamer.Renamer(max_sr)
+    #vr_name = renamer.return_vr_name()
+    #IR = renamer.return_IR()
+    IR, vr_name = renamer.rename()
+    #renamer.print_nodes()
+    allocator = Allocator.Allocator(k, IR, vr_name)
+    allocator.allocate()
+    #allocator.print_nodes()
+    
+        
 if __name__ == "__main__":
     main()

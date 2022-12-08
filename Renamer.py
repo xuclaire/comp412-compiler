@@ -11,6 +11,7 @@ class Renamer:
         self.sr_to_vr = ["invalid" for i in range(int(self.max_sr) + 1)]
         self.lu = [float('inf') for i in range(int(self.max_sr) + 1)]
         self.final_list = []  
+        self.final_vr_name = 0
 
     def rename(self):
         index = len(self.IR)
@@ -60,6 +61,10 @@ class Renamer:
                 node[7] = self.sr_to_vr[node[6]]
                 node[9] = self.lu[node[6]]
                 self.lu[node[6]] = index
+        
+        self.final_vr_name = self.vr_name
+
+        return self.IR, self.vr_name
             
     def print_nodes(self):       
         #check for loadi and output case = dont add a register 
@@ -72,3 +77,9 @@ class Renamer:
                 print(str(node[1]) + " r" + str(node[3]) + " => r" + str(node[11]))
             else:
                 print(str(node[1]) + " r" + str(node[3]) + ", r" + str(node[7]) + " => r" + str(node[11]))
+
+    def return_IR(self):
+        return self.IR
+    
+    def return_vr_name(self):
+        return self.final_vr_name 

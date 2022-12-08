@@ -1,0 +1,22 @@
+COMP 412, Fall 2022
+
+The lab2 autograder is similar to the lab1 autograder.
+You unpack the tar file into a directory. It will create a subtree named
+"l2ag".  Inside l2ag, you place your tar archive file in the directory
+TarFileGoesHere and then execute ./RunGrader
+
+RunGrader will leave a log file and a set of files in the results directory.
+The log file should list all of the data for you lab, run on a subset of 
+the testing files.
+
+Scores are expressed as a number between 0 and 1 (inclusive) that indicates
+the fraction of points foro that category (correctness, effectiveness, 
+scalability) that the lab would receive.
+
+The results/Scores.txt file is a tab-separated file of the same scores.
+
+-------------------------------
+If you include multiple tar archives, each will be scored.
+The "comp412" tar file uses lab2_ref.
+
+

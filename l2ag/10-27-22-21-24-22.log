@@ -1,0 +1,124 @@
+==================================================
+Testing submission from NetID ' ccx1 ', name '  ')
+Submitted tar archive name:  ccx1.tar
+
+Result is a set of (k, cycle) pairs for each test block
+
+Simulator Error: Invalid register number r3 used in cycle 3.
+Simulator Error: Invalid register number r4 used in cycle 4.
+Simulator Error: Invalid register number r5 used in cycle 5.
+Simulator Error: Invalid register number r6 used in cycle 6.
+Simulator Error: Invalid register number r8 used in cycle 8.
+Simulator Error: Invalid register number r12 used in cycle 12.
+Simulator Error: Invalid register number r16 used in cycle 16.
+T001k.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: '100000'}
+Line 234: store used with incorrect number of source registers
+Line 234: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+Line 133: store used with incorrect number of source registers
+Line 133: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+Line 126: store used with incorrect number of source registers
+Line 126: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+Line 347: store used with incorrect number of source registers
+Line 347: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+Line 116: store used with incorrect number of source registers
+Line 116: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+Line 162: store used with incorrect number of source registers
+Line 162: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+Line 79: store used with incorrect number of source registers
+Line 79: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+long.i:		{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: '100000'}
+Simulator Error: Invalid register number r3 used in cycle 3.
+Simulator Error: Invalid register number r4 used in cycle 4.
+Simulator Error: Invalid register number r5 used in cycle 5.
+Simulator Error: Invalid register number r6 used in cycle 6.
+Simulator Error: Invalid register number r8 used in cycle 8.
+Simulator Error: Invalid register number r12 used in cycle 15.
+report1.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: 54}
+Simulator Error: Invalid register number r3 used in cycle 3.
+Simulator Error: Invalid register number r4 used in cycle 4.
+Simulator Error: Invalid register number r5 used in cycle 5.
+Simulator Error: Invalid register number r6 used in cycle 7.
+Simulator Error: Invalid register number r8 used in cycle 11.
+Simulator Error: Invalid register number r12 used in cycle 19.
+report2.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: 56}
+Simulator Error: Invalid register number r3 used in cycle 6.
+Simulator Error: Invalid register number r4 used in cycle 8.
+Simulator Error: Invalid register number r5 used in cycle 10.
+Simulator Error: Invalid register number r6 used in cycle 12.
+Simulator Error: Invalid register number r8 used in cycle 16.
+Simulator Error: Invalid register number r12 used in cycle 24.
+Simulator Error: Invalid register number r16 used in cycle 32.
+report3.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: '100000'}
+Line 97: store used with incorrect number of source registers
+Line 97: syntax error, unexpected NUMBER, expecting $end
+
+Error reading input file, simulator not run.
+Simulator Error: Invalid register number r4 used in cycle 4.
+Simulator Error: Invalid register number r5 used in cycle 5.
+Simulator Error: Invalid register number r6 used in cycle 6.
+Simulator Error: Invalid register number r8 used in cycle 8.
+Simulator Error: Invalid register number r12 used in cycle 12.
+Simulator Error: Invalid register number r16 used in cycle 16.
+report4.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: '100000'}
+Simulator Error: Invalid register number r3 used in cycle 3.
+Simulator Error: Invalid register number r4 used in cycle 4.
+Simulator Error: Invalid register number r5 used in cycle 6.
+Simulator Error: Invalid register number r6 used in cycle 7.
+Simulator Error: Invalid register number r8 used in cycle 18.
+report5.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: 30, 16: 30}
+Simulator Error: Invalid register number r3 used in cycle 3.
+Simulator Error: Invalid register number r4 used in cycle 4.
+Simulator Error: Invalid register number r5 used in cycle 5.
+Simulator Error: Invalid register number r6 used in cycle 6.
+Simulator Error: Invalid register number r8 used in cycle 8.
+Simulator Error: Invalid register number r12 used in cycle 12.
+Simulator Error: Invalid register number r16 used in cycle 84.
+report6.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: '100000'}
+Simulator Error: Invalid register number r3 used in cycle 3.
+Simulator Error: Invalid register number r4 used in cycle 4.
+Simulator Error: Invalid register number r5 used in cycle 5.
+Simulator Error: Invalid register number r6 used in cycle 6.
+Simulator Error: Invalid register number r8 used in cycle 8.
+Simulator Error: Invalid register number r12 used in cycle 20.
+report7.i:	{3: '100000', 4: '100000', 5: '100000', 6: '100000', 8: '100000', 12: '100000', 16: 44}
+
+Testing Scalability:
+
+	T008k.i:  	0.6238 seconds
+	T016k.i:  	1.1760 seconds
+	T032k.i:  	2.3697 seconds
+	T064k.i:  	4.9268 seconds
+	T128k.i:  	9.7555 seconds
+ 
+
+Finished submission  ccx1.tar
+Running lab2_ref to establish effectiveness baselines
+
+--------------------------------------------------
+Concise results (% of points in each category)
+
+ :
+   Correctness points:     0.0793
+   Effectiveness points:   0.0793
+	Scaling appears to be linear
+   Scalability points:     100 
+
+--------------------------------------------------
+
+
+Normal Exit
+

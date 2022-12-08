@@ -7,7 +7,7 @@ import DoublyLinkedList
 class Parser:
     #add in line number
     def __init__(self):
-        self.file = open(sys.argv[2], 'r')
+        self.file = open(sys.argv[1], 'r')
         self.file_length = len(self.file.readlines())
         self.scanner = Scanner.Scanner(self.file)
         self.next_token = ""

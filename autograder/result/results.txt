@@ -1,2 +1,0 @@
-Name	NetId	Conform	Correct	Scales	Points
-ccx1	ccx1	87.5	0	100	45.625

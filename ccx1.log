@@ -1,0 +1,19 @@
+Testing '/clear/courses/comp412/students/lab2/lab2_ref' on files in /storage-home/c/ccx1/comp412/comp412-compiler/my_tests
+Run on 11-07-22 at 21:50:01
+
+Changing directory to '/clear/courses/comp412/students/lab2'.
+
+Testing 'submitted.i'
+	k = 3	 correct in 78 cycles
+	k = 4	 correct in 73 cycles
+	k = 5	 correct in 68 cycles
+	k = 6	 correct in 63 cycles
+	k = 8	 correct in 53 cycles
+	k = 10	 correct in 46 cycles
+	k = 12	 correct in 44 cycles
+	k = 16	 correct in 44 cycles
+
+Removing /tmp/ccx1
+--> succeeded
+
+Test run exits successfully.

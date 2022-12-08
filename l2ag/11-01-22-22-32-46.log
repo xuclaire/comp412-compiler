@@ -1,0 +1,43 @@
+==================================================
+Testing submission from NetID ' ccx1 ', name '  ')
+Submitted tar archive name:  ccx1.tar
+ 
+
+Result is a set of (k, cycle) pairs for each test block
+
+T001k.i:	{3: 6949, 4: 6609, 5: 6269, 6: 5941, 8: 5273, 12: 3936, 16: 2622}
+long.i:		{3: 896, 4: 711, 5: 608, 6: 512, 8: 356, 12: 174, 16: 121}
+report1.i:	{3: 276, 4: 272, 5: 268, 6: 264, 8: 146, 12: 84, 16: 60}
+report2.i:	{3: 296, 4: 185, 5: 122, 6: 116, 8: 104, 12: 80, 16: 56}
+report3.i:	{3: 423, 4: 393, 5: 355, 6: 290, 8: 231, 12: 155, 16: 118}
+report4.i:	{3: 285, 4: 273, 5: 261, 6: 249, 8: 225, 12: 172, 16: 126}
+report5.i:	{3: 136, 4: 115, 5: 86, 6: 76, 8: 48, 12: 30, 16: 30}
+report6.i:	{3: 467, 4: 418, 5: 359, 6: 305, 8: 247, 12: 179, 16: 129}
+report7.i:	{3: 205, 4: 176, 5: 142, 6: 133, 8: 87, 12: 55, 16: 44}
+
+Testing Scalability:
+
+	T008k.i:  	0.6814 seconds
+	T016k.i:  	1.2292 seconds
+	T032k.i:  	2.4993 seconds
+	T064k.i:  	5.3132 seconds
+	T128k.i:  	10.911 seconds
+ 
+
+Finished submission  ccx1.tar
+Running lab2_ref to establish effectiveness baselines
+
+--------------------------------------------------
+Concise results (% of points in each category)
+
+ :
+   Correctness points:     1.0
+   Effectiveness points:   0.5735
+	Scaling appears to be linear
+   Scalability points:     100 
+
+--------------------------------------------------
+
+
+Normal Exit
+

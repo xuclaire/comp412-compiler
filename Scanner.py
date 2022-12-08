@@ -4,7 +4,7 @@ import Constants
 class Scanner:
     def __init__(self, file):
         self.line_number = 0
-        self.file = open(sys.argv[2], 'r') 
+        self.file = open(sys.argv[1], 'r') 
         self.current_line = ""
         self.next_char_pointer = 0 
         self.char = ' '
